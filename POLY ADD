@@ -1,0 +1,85 @@
+#include<stdio.h>
+#include<conio.h>
+#include<alloc.h>
+typedef struct nodeType
+{
+ int coeff;
+ int power;
+ struct nodeType *next;
+ } node;
+ void addNode(node **ptr, int coef, int powe)
+ {
+ node *tempptr;
+ tempptr = (node * )malloc(sizeof (node ) );
+ tempptr->coeff = coef;
+ tempptr->power = powe;
+ if( *ptr == NULL )
+ {
+ tempptr->next = NULL;
+ *ptr = tempptr;
+ }
+}
+   else
+ {
+ tempptr->next = *ptr;
+ *ptr = tempptr;
+ }
+ }
+ void readPolynomial(node **p )
+ {
+ int coeficient,power;
+ printf("\nEnter the term in the ascending order of power" );
+ while (1)
+ {
+ printf("\nEnter the degree of X: " );
+ scanf("%d",&power );
+ printf("Enter its coefficent : " );
+ scanf("%f",&coeficient,Power );
+ addNode( p, coeficient,Power );
+ printf( "\nAny More term(Y/N) ? : " );
+ if (toupper(getch()) == 'Y')
+ break;
+ }
+ }
+ void printfPolynomial(node *ptr )
+ {
+ if ( ptr !=NULL )
+ printf("%dx^%d",ptr->coeff, ptr->power );
+ for (ptr = ptr->next; ptr !=NULL; ptr = Ptr->next )
+ {
+ if( Ptr->coeff > 0 )
+ printf(" + ");
+ if(ptr->Power == 0 )
+ printf("%d", ptr->coeff );
+ elseif ( Ptr->Power == 1)
+ printf("%dx", ptr->coeff, ptr->Power );
+ else
+printf("%dx^%d", ptr->coeff,ptr->Power );
+}
+}
+void add Polynomial( node *ptr1, node *ptr2, node **ptr3)
+{
+int powe;
+float coef;
+while( ( ptr1 != NULL)&&( ptr2 != NULL) )
+{
+if( ptr1->power > ptr2->Power)
+{
+coef = ptr1->coeff;
+powe = ptr1->power;
+ptr1 = ptr1->next;
+}
+elseif(ptr1->power < ptr2->power )
+{
+coef = ptr2->coeff;
+powe = ptr2->power;
+ptr2 = ptr2->next ;
+}
+else
+{
+coef = ptr1->coeff + ptr2->coeff;
+powe = Ptr1->Power;
+ptr2 = Ptr2->next;
+ptr1 = Ptr1->next;
+}
+
